@@ -28,8 +28,10 @@ public:
   int set_prev(Card *prev);
   int set_next(Card *next);
   Card* get_prev();
-  Card* get_next();
-  int get_amount();
+  Card *get_next();
+
+  int get_amount() const;
+
   int use_amount(int off);
   int add_amount(int in);
   string set_register(string id, string name);

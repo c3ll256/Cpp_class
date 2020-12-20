@@ -34,7 +34,7 @@ int Card::add_amount(int in) {
   }
 }
 
-int Card::get_amount() {
+int Card::get_amount() const {
   return _amount;
 }
 
@@ -61,10 +61,12 @@ string Card::set_register(string id, string name) {
 
 int Card::set_prev(Card *prev) {
   _prev = prev;
+  return 1;
 }
 
 int Card::set_next(Card *next) {
   _next = next;
+  return 1;
 }
 
 Card* Card::get_prev() {

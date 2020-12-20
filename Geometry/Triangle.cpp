@@ -13,13 +13,13 @@ bool Triangle::_is_triangle() {
 }
 
 // 三角形面积
-double Triangle::triangle_area() {
-  double s = (Triangle::_border[0] + Triangle::_border[1] + Triangle::_border[2])/2;
-  return sqrt(s*(s-Triangle::_border[0])*(s-Triangle::_border[1])*(s-Triangle::_border[2]));
+double Triangle::get_area() {
+  double s = (Triangle::_border[0] + Triangle::_border[1] + Triangle::_border[2]) / 2;
+  return sqrt(s * (s - Triangle::_border[0]) * (s - Triangle::_border[1]) * (s - Triangle::_border[2]));
 }
 
 // 三角形周长
-double Triangle::triangle_perimeter() {
+double Triangle::get_perimeter() {
   return Triangle::_border[0] + Triangle::_border[1] + Triangle::_border[2];
 }
 
@@ -45,10 +45,7 @@ int Triangle::triangle_type_angle() {
   else return -1;
 }
 
-Triangle::Triangle(double x, double y, double z) {
-  _border[0] = x;
-  _border[1] = y;
-  _border[2] = z;
+Triangle::Triangle(vector<double> border) : PlaneGeometry(3, border) {
   if (!_is_triangle())
     throw invalid_argument("Not triangle");
 }

@@ -6,21 +6,27 @@
  * 按照標準寫好就好，但設計錯誤的時候思考了一下，最後決定還是按照標準拋出一個錯誤，讓外部去 catch 。
  * */
 
+#include "PlaneGeometry.h"
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cmath>
 
-class Triangle {
+class Triangle : protected PlaneGeometry {
 private:
-  double _border[3];
   bool _is_triangle();
+
 public:
-  double triangle_area();
-  double triangle_perimeter();
+  double get_area() override;
+
+  double get_perimeter() override;
+
   int triangle_type_border();
+
   int triangle_type_angle();
-  Triangle(double x, double y, double z);
+
+  Triangle(std::vector<double> border);
 };
 
 
